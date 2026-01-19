@@ -1,26 +1,67 @@
 @import "tailwindcss";
 
+@theme inline {
+  /* Colors */
+  --color-brand-primary: #0B0F0E;
+  --color-brand-secondary: #FFFFFF;
+  --color-text-primary: #0B0F0E;
+  --color-text-secondary: #5D6460;
+  --color-text-muted: #8C948F;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F6F7F7;
+  --color-accent-green: #59C55F;
+  --color-accent-blue: #BFD9FF;
+  --color-line: rgba(0, 0, 0, 0.08);
+
+  /* Font sizes */
+  --font-size-nav: 14px;
+  --font-size-body: 16px;
+  --font-size-small: 13px;
+  --font-size-caption: 12px;
+  --font-size-h1: 54px;
+  --font-size-h2: 38px;
+  --font-size-h3: 26px;
+  --font-size-h4: 20px;
+  --font-size-stat: 28px;
+
+  /* Border radius */
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --shadow-card: 0 10px 25px rgba(0, 0, 0, 0.08);
+  --shadow-floating: 0 18px 40px rgba(0, 0, 0, 0.12);
+
+  /* Font family */
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground: #0B0F0E;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* Custom utilities */
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hero gradient overlay */
+.hero-overlay {
+  background: linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.20) 55%, rgba(0,0,0,0.05) 100%);
 }

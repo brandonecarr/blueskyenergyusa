@@ -1,7 +1,13 @@
+"use client";
+
+import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { stats } from "@/lib/constants";
+import { ContactModal } from "@/components/ui/ContactModal";
 
 export function HeroSection() {
+  const [contactModalOpen, setContactModalOpen] = useState(false);
+
   return (
     <section className="relative">
       {/* Hero Container */}
@@ -40,7 +46,10 @@ export function HeroSection() {
 
               {/* CTA Button - White with black icon */}
               <div>
-                <button className="inline-flex items-center gap-3 h-12 pl-6 pr-1.5 bg-white text-brand-primary rounded-full font-semibold hover:bg-white/95 transition-colors group">
+                <button
+                  onClick={() => setContactModalOpen(true)}
+                  className="inline-flex items-center gap-3 h-12 pl-6 pr-1.5 bg-white text-brand-primary rounded-full font-semibold hover:bg-white/95 transition-colors group"
+                >
                   <span>Get Started</span>
                   <span className="w-9 h-9 rounded-full bg-brand-primary flex items-center justify-center">
                     <ArrowUpRight size={16} className="text-white" />
@@ -82,6 +91,11 @@ export function HeroSection() {
           </div>
         </div>
       </div>
+
+      <ContactModal
+        isOpen={contactModalOpen}
+        onClose={() => setContactModalOpen(false)}
+      />
     </section>
   );
 }

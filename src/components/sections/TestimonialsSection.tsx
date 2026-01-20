@@ -23,29 +23,11 @@ export function TestimonialsSection() {
           {/* Left Content */}
           <div>
             <h2 className="text-3xl md:text-[38px] font-bold text-brand-primary leading-tight mb-6">
-              What Say Our Valuable Clients
+              What Our Clients Say
             </h2>
-            <p className="text-sm text-text-secondary leading-relaxed mb-8 max-w-md">
+            <p className="text-sm text-text-secondary leading-relaxed max-w-md">
               We wanted to reduce our carbon footprint, and going solar was the perfect way to do that.
             </p>
-
-            {/* Navigation Arrows */}
-            <div className="flex gap-3">
-              <button
-                onClick={prevTestimonial}
-                className="w-12 h-12 rounded-full border border-line flex items-center justify-center hover:bg-surface-alt transition-colors"
-                aria-label="Previous testimonial"
-              >
-                <ChevronLeft size={20} className="text-brand-primary" />
-              </button>
-              <button
-                onClick={nextTestimonial}
-                className="w-12 h-12 rounded-full border border-line flex items-center justify-center hover:bg-surface-alt transition-colors"
-                aria-label="Next testimonial"
-              >
-                <ChevronRight size={20} className="text-brand-primary" />
-              </button>
-            </div>
           </div>
 
           {/* Right - Testimonial Card */}
@@ -64,11 +46,20 @@ export function TestimonialsSection() {
 
               {/* Quote */}
               <div className="flex-1">
-                <div className="flex items-start gap-2 mb-4">
-                  <div className="flex gap-1">
-                    <div className="w-4 h-4 rounded-sm bg-red-500" />
-                    <div className="w-4 h-4 rounded-sm bg-white border border-gray-200" />
-                  </div>
+                {/* Pagination Dots */}
+                <div className="flex items-center gap-1.5 mb-4">
+                  {testimonials.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentIndex(index)}
+                      className={`w-2.5 h-2.5 rounded-full transition-colors ${
+                        index === currentIndex
+                          ? "bg-red-500"
+                          : "bg-gray-200 hover:bg-gray-300"
+                      }`}
+                      aria-label={`Go to testimonial ${index + 1}`}
+                    />
+                  ))}
                 </div>
 
                 <Quote size={24} className="text-surface-alt mb-4" />
@@ -77,11 +68,31 @@ export function TestimonialsSection() {
                   {testimonial.quote}
                 </p>
 
-                <div>
-                  <p className="text-sm font-bold text-brand-primary">
-                    {testimonial.name}
-                  </p>
-                  <p className="text-xs text-text-muted">{testimonial.title}</p>
+                <div className="flex items-end justify-between">
+                  <div>
+                    <p className="text-sm font-bold text-brand-primary">
+                      {testimonial.name}
+                    </p>
+                    <p className="text-xs text-text-muted">{testimonial.title}</p>
+                  </div>
+
+                  {/* Navigation Arrows */}
+                  <div className="flex gap-2">
+                    <button
+                      onClick={prevTestimonial}
+                      className="w-10 h-10 rounded-full border border-line flex items-center justify-center hover:bg-surface-alt transition-colors"
+                      aria-label="Previous testimonial"
+                    >
+                      <ChevronLeft size={18} className="text-brand-primary" />
+                    </button>
+                    <button
+                      onClick={nextTestimonial}
+                      className="w-10 h-10 rounded-full border border-line flex items-center justify-center hover:bg-surface-alt transition-colors"
+                      aria-label="Next testimonial"
+                    >
+                      <ChevronRight size={18} className="text-brand-primary" />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

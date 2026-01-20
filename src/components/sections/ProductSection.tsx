@@ -1,92 +1,67 @@
-import { ArrowRight, Leaf } from "lucide-react";
+import { Battery, Zap, TrendingDown } from "lucide-react";
+import { Badge } from "@/components/ui/Badge";
 
-const specs = [
-  { label: "Certification", value: "IEC/UL 61730\nCSC Listed" },
-  { label: "Inverter Power", value: "3.8kW/7.6kW" },
-  { label: "Dimensions", value: "74.4×37.2×1.57\"\n(including frame)" },
-  { label: "Certification", value: "IEC/UL 61730\nCSC Listed" },
+const services = [
+  {
+    icon: Battery,
+    title: "Energy Storage Integration",
+    description:
+      "Store excess solar electricity at your home instead of sending it back to the grid. Solar batteries convert DC energy from your panels and store it as AC power for later use, allowing you to draw down stored energy at night when your panels aren't producing.",
+  },
+  {
+    icon: TrendingDown,
+    title: "Commercial Demand Charge Mitigation",
+    description:
+      "Unlike residential consumers, larger electricity consumers pay demand charges on a kW basis. We help commercial clients save considerably by mitigating these surcharges that often make up a substantial portion of the total bill.",
+  },
+  {
+    icon: Zap,
+    title: "Peak Shaving Through Load Shifting",
+    description:
+      "Reduce energy costs by using local energy storage to compensate for large consumption during peak hours. Charge during off-hours and discharge during operational hours to significantly reduce peak demand charges from the utility.",
+  },
 ];
 
 export function ProductSection() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-surface-alt">
       <div className="max-w-[1200px] mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center">
-          {/* Left Content */}
-          <div className="space-y-8">
-            <div>
-              <h2 className="text-3xl md:text-[38px] font-bold text-brand-primary leading-tight mb-4">
-                Powering Your Future With Clean,
-              </h2>
-              <p className="text-sm text-text-secondary leading-relaxed">
-                Join hundreds of companies embracing sustainable solutions globally.
-              </p>
-            </div>
+        {/* Centered Header */}
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          <Badge variant="outline" className="mb-6">
+            Our Services
+          </Badge>
 
-            <button className="inline-flex items-center gap-2 h-11 px-6 bg-brand-primary text-white rounded-full font-semibold hover:bg-[#161C1A] transition-colors text-sm">
-              Learn more
-              <ArrowRight size={16} />
-            </button>
+          <h2 className="text-3xl md:text-[38px] font-bold text-brand-primary leading-tight mb-6">
+            Powering Your Future With Clean Energy
+          </h2>
 
-            {/* Mini Card */}
-            <div className="bg-surface-alt rounded-2xl p-5">
-              <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-white flex items-center justify-center">
-                  <Leaf size={14} className="text-accent-green" />
+          <p className="text-text-secondary leading-relaxed">
+            BlueSky Energy&apos;s signature solar installation service is available throughout the greater Los Angeles area. We help clients navigate the complexities of capital investment in renewable energy, specializing in energy storage integration for both residential and commercial projects.
+          </p>
+        </div>
+
+        {/* Service Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {services.map((service, index) => {
+            const IconComponent = service.icon;
+            return (
+              <div
+                key={index}
+                className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="w-12 h-12 rounded-full bg-surface-alt flex items-center justify-center mb-6">
+                  <IconComponent size={22} className="text-brand-primary" />
                 </div>
-                <div>
-                  <h4 className="text-sm font-bold text-brand-primary mb-1">
-                    Environmentally friendly
-                  </h4>
-                  <p className="text-xs text-text-secondary leading-relaxed">
-                    Renewable energy will no carbon emissions, helping reduce global warming.
-                  </p>
-                </div>
-              </div>
-              <p className="text-xs text-text-muted mt-3 underline cursor-pointer hover:text-text-secondary">
-                Learn more
-              </p>
-            </div>
-          </div>
-
-          {/* Center - Product Image */}
-          <div className="flex justify-center">
-            <div className="relative">
-              {/* Sunburst Rays */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                {[...Array(12)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="absolute w-1 h-32 bg-gradient-to-t from-transparent to-accent-green/20 origin-bottom"
-                    style={{
-                      transform: `rotate(${i * 30}deg) translateY(-50%)`,
-                    }}
-                  />
-                ))}
-              </div>
-
-              {/* Oval Image Container */}
-              <div className="relative w-64 h-96 rounded-full overflow-hidden shadow-floating">
-                <img
-                  src="https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=400&h=600&fit=crop"
-                  alt="Wind turbine in landscape"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Right - Specs */}
-          <div className="space-y-6">
-            {specs.map((spec, index) => (
-              <div key={index} className="text-right">
-                <p className="text-xs text-text-muted mb-1">{spec.label}</p>
-                <p className="text-sm font-semibold text-brand-primary whitespace-pre-line">
-                  {spec.value}
+                <h3 className="text-lg font-bold text-brand-primary mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-sm text-text-secondary leading-relaxed">
+                  {service.description}
                 </p>
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>

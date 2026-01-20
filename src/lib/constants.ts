@@ -36,16 +36,22 @@ export const stats = [
 
 export const features = [
   {
-    icon: "leaf",
-    title: "Environmentally Friendly",
+    icon: "wrench",
+    title: "Expert Installation",
     description:
-      "Solar energy reduces greenhouse gases and pollutants, helping combat climate change.",
+      "NABCEP certified, US Veteran installers delivering quality and precision design engineering. Licensed California Contractor (#1016637).",
   },
   {
-    icon: "wrench",
-    title: "Low Maintenance",
+    icon: "dollar",
+    title: "Simple Solar Solutions",
     description:
-      "Solar panels are durable, with minimal maintenance costs, requiring only occasional cleaning.",
+      "We make it extremely simple for you to go solar with $0 down residential and commercial financing options available.",
+  },
+  {
+    icon: "leaf",
+    title: "Environmental Stewardship",
+    description:
+      "Passionate about harnessing a clean energy future with Tier 1, name brand, CSI approved equipment and peak energy production guaranteed.",
   },
 ];
 
@@ -96,32 +102,19 @@ export const testimonials = [
     title: "Homeowner",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
   },
-];
-
-export const blogPosts = [
   {
-    date: "August 5, 2024",
-    title: "10 Reasons to Switch to Solar Energy Today",
-    excerpt:
-      "Explore the top financial, environmental, and personal benefits of solar energy to motivate...",
-    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&h=400&fit=crop",
-    slug: "10-reasons-switch-solar",
+    quote:
+      "BlueSky Energy made the entire process seamless from start to finish. Their team was professional, knowledgeable, and answered all our questions. Our electricity bill has dropped by 70% since installation.",
+    name: "Michael Torres",
+    title: "Business Owner",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop",
   },
   {
-    date: "August 5, 2024",
-    title: "How Solar Energy Can Save You Money on Utility Bills",
-    excerpt:
-      "Break down the main calculations of solar energy, including potential savings, government...",
-    image: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&h=400&fit=crop",
-    slug: "solar-save-money-utility-bills",
-  },
-  {
-    date: "August 5, 2024",
-    title: "Solar Panel Installation: What to Expect from Start to Finish",
-    excerpt:
-      "Guide potential customers through the installation process from initial consultation to...",
-    image: "https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=600&h=400&fit=crop",
-    slug: "solar-panel-installation-guide",
+    quote:
+      "We were hesitant at first, but the team at BlueSky walked us through every step. Now we're producing more energy than we use and getting credits back from the utility company. Best investment we've made.",
+    name: "Jennifer & David Chen",
+    title: "Homeowners",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop",
   },
 ];
 
@@ -135,7 +128,7 @@ export const footerLinks = {
     { label: "About", href: "#" },
     { label: "Pricing", href: "#" },
     { label: "Our Mission", href: "#" },
-    { label: "Blog", href: "#" },
+    { label: "Blog", href: "/blog" },
   ],
   contact: [
     { label: "Community", href: "#" },
